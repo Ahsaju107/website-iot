@@ -1,6 +1,6 @@
 import './globals.css'
 import { Poppins, Unbounded } from 'next/font/google'
-import Navbar from '@/components/layout/Navbar'
+import AppShell from '@/components/layout/AppShell'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} ${unbounded.variable}`}>
       <body className='bg-background text-white font-secondary'>
-        <Navbar/>
-        {children}
+        <AppShell>
+         {children}
+        </AppShell>
       </body>
     </html>
   )

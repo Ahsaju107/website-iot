@@ -6,6 +6,7 @@ export default function HeroSection(){
         <section className="w-full h-full overflow-hidden">
             <HeaderHeroSection/>
             <MainContentHeroSection/>
+            <div className=" block w-full h-[45vh] md:h-[15vh] bg-slate-950"></div>
         </section>
     )
 }
