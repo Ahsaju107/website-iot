@@ -18,7 +18,14 @@ const MainContentHeroSection = () => {
     const tl = gsap.timeline();
 
     useEffect(() => {
-        tl.to('#logo', {
+       tl.fromTo('#logo',
+        {
+            y: '-55vh',
+            x: '-25vw',
+            scale: 0.95,
+            rotate: 0,
+        },
+        {
             scrollTrigger: {
                 trigger: '#mainHeroContent',
                 start: 'top bottom',
@@ -26,11 +33,12 @@ const MainContentHeroSection = () => {
                 toggleActions: 'play reverse play reverse',
                 end: 'center center'
             },
-            scale: 0.7,
-            x: 300,
-            y: 310,
-            rotate: 360
-        })
+            y: '0',
+            scale: 0.85,
+            rotate: 360,
+            x: '0'
+        }
+       )
     }, [])
 
 
@@ -67,7 +75,18 @@ const MainContentHeroSection = () => {
             <div className=' text-blue-400 text-2xl flex justify-center items-center    '>
                 <div className='absolute top-0 left-0 md:ml-3 rounded-lg ring-1 ring-blue-400/50 p-3 hover:-translate-y-1 transition-transform duration-500'><FaCode/></div>
                 <div className='absolute bottom-0 right-0 rounded-lg ring-1 ring-blue-400/50 p-3 hover:-translate-y-1 transition-transform duration-500'><CgSmartphoneChip/></div>
-                <Image id="logo" src={'/images/logo.png'} fill objectFit="contain" alt="logo" className=" fixed top-0 -translate-y-[65%] lg:-translate-y-2/4 -z-50"/>
+                <div className="relative flex justify-center items-start overflow-visible">
+                    <div className="relative aspect-square w-[360px] md:w-[480px] lg:w-[560px]">
+                        <Image
+                        id="logo"
+                        src="/images/logo.png"
+                        alt="logo"
+                        fill
+                        className="object-contain drop-shadow-xl"
+                        priority
+                        />
+                    </div>
+                 </div>
             </div>
         </div>
     </section>
